@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="context1" targetRuntime="MyBatis3">
+		<plugin type="cn.healthmall.sail.mybatisgenrator.LifeHallPlugin">
+			<property name="servicePackage" value="cn.healthmall.sail.base.service" />
+			<property name="targetProject"
+					  value="D:\\WorkProject\\xujianfang\\qihangTest\\sail-base\\src\\main\\java" />
+		</plugin>
+
+		<commentGenerator
+				type="cn.healthmall.sail.mybatisgenrator.LifeHallCommentGenerator">
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.0.20.170:3306/dev_healthmall_sail?useUnicode=true&amp;characterEncoding=UTF-8"
+						userId="dev_healthmall_sail" password="PNB4SIwR2MSHfXcGOB98fu370" />
+		<javaModelGenerator targetPackage="cn.healthmall.sail.base.module"
+							targetProject="D:\\WorkProject\\xujianfang\\qihangTest\\sail-base\\src\\main\\java">
+			<property name="rootClass"
+					  value="cn.healthmall.sail.common.mybatis.base.EntityBase"></property>
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="cn.healthmall.sail.base.dao.mapper"
+						 targetProject="D:\\WorkProject\\xujianfang\\qihangTest\\sail-base\\src\\main\\java" />
+		<javaClientGenerator targetPackage="cn.healthmall.sail.base.dao"
+							 targetProject="D:\\WorkProject\\xujianfang\\qihangTest\\sail-base\\src\\main\\java"
+							 type="XMLMAPPER" />
+
+
+		<table tableName="base_share" domainObjectName="Share" alias="_share">
+			<generatedKey column="id" sqlStatement="SELECT REPLACE(UUID(), '-', '')"></generatedKey>
+			<columnOverride column="id" property="id"></columnOverride>
+			<columnOverride column="source_from" property="sourceFrom"></columnOverride>
+			<columnOverride column="name" property="name"></columnOverride>
+			<columnOverride column="link" property="link"></columnOverride>
+			<columnOverride column="image_url" property="imageUrl"></columnOverride>
+			<columnOverride column="description" property="description"></columnOverride>
+			<columnOverride column="title" property="title"></columnOverride>
+			<columnOverride column="delete_flag" property="deleteFlag"></columnOverride>
+			<columnOverride column="create_time" property="createTime"></columnOverride>
+			<columnOverride column="create_by" property="createBy"></columnOverride>
+			<columnOverride column="update_time" property="updateTime"></columnOverride>
+			<columnOverride column="update_by" property="updateBy"></columnOverride>
+		</table> 
+
+
+	</context>
+</generatorConfiguration>

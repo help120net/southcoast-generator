@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="context1" targetRuntime="MyBatis3">
+		<plugin type="cn.south.toast.mybatisgenerator.SouthCoastPlugin">
+			<property name="servicePackage" value="cn.south.toast.base.service" />
+			<property name="targetProject"
+				value="D:\\git\\southcoasp\\south-coast-base\\src\\main\\java" />
+		</plugin>
+
+		<commentGenerator
+			type="cn.south.toast.mybatisgenerator.SouthCoastCommentGenerator">
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/healthmall_sail?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="root" password="123456" />
+
+		<javaModelGenerator targetPackage="cn.south.toast.base.module"
+			targetProject="D:\\git\\southcoasp\\south-coast-base\\src\\main\\java">
+			<property name="rootClass"
+				value="cn.south.toast.common.mybatis.base.EntityBase"></property>
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="cn.south.toast.base.dao.mapper"
+			targetProject="D:\\git\\southcoasp\\south-coast-base\\src\\main\\java" />
+		<javaClientGenerator targetPackage="cn.south.toast.base.dao"
+			targetProject="D:\\git\\southcoasp\\south-coast-base\\src\\main\\java"
+			type="XMLMAPPER" />
+
+
+		<!--&lt;!&ndash; 权限管理 &ndash;&gt; -->
+		<table tableName="auth_user" domainObjectName="User" alias="_User">
+			<generatedKey column="id" sqlStatement="SELECT REPLACE(UUID(), '-', '')"></generatedKey>
+			<columnOverride column="id" property="id"></columnOverride>
+			<columnOverride column="username" property="username"></columnOverride>
+			<columnOverride column="password" property="password"></columnOverride>
+			<columnOverride column="is_locked" property="locked"></columnOverride>
+			<columnOverride column="type" property="type"></columnOverride>
+			<columnOverride column="delete_flag" property="deleteFlag"></columnOverride>
+			<columnOverride column="create_time" property="createTime"></columnOverride>
+			<columnOverride column="create_by" property="createBy"></columnOverride>
+			<columnOverride column="update_time" property="updateTime"></columnOverride>
+			<columnOverride column="update_by" property="updateBy"></columnOverride>
+
+		</table>
+
+		<table tableName="auth_role" domainObjectName="Role" alias="_Role">
+			<generatedKey column="id" sqlStatement="SELECT REPLACE(UUID(), '-', '')"></generatedKey>
+			<columnOverride column="id" property="id"></columnOverride>
+			<columnOverride column="name" property="name"></columnOverride>
+			<columnOverride column="description" property="description"></columnOverride>
+			<columnOverride column="delete_flag" property="deleteFlag"></columnOverride>
+			<columnOverride column="create_time" property="createTime"></columnOverride>
+			<columnOverride column="create_by" property="createBy"></columnOverride>
+			<columnOverride column="update_time" property="updateTime"></columnOverride>
+			<columnOverride column="update_by" property="updateBy"></columnOverride>
+		</table>
+
+		<table tableName="auth_resource" domainObjectName="Resource"
+			alias="_Resource">
+			<generatedKey column="id" sqlStatement="SELECT REPLACE(UUID(), '-', '')"></generatedKey>
+			<columnOverride column="id" property="id"></columnOverride>
+			<columnOverride column="parent_id" property="parentId"></columnOverride>
+			<columnOverride column="name" property="name"></columnOverride>
+			<columnOverride column="url" property="url"></columnOverride>
+			<columnOverride column="description" property="description"></columnOverride>
+			<columnOverride column="type" property="type"></columnOverride>
+			<columnOverride column="show_menu" property="showMenu"></columnOverride>
+			<columnOverride column="delete_flag" property="deleteFlag"></columnOverride>
+			<columnOverride column="create_time" property="createTime"></columnOverride>
+			<columnOverride column="create_by" property="createBy"></columnOverride>
+			<columnOverride column="update_time" property="updateTime"></columnOverride>
+			<columnOverride column="update_by" property="updateBy"></columnOverride>
+		</table>
+
+	</context>
+</generatorConfiguration>
